@@ -21,19 +21,18 @@ button.forEach((bt)=>{
                     }
                 }
                 break;
-            case "x": chuoinho += "*"; kt = 0; break;
-            case ",": chuoinho += "."; kt = 0; break;
+            case "%":
+                chuoinho += "%";
+                kt = 0;
+                break;            case ",": chuoinho += "."; kt = 0; break;
             case "=": chuoinho = Number(eval(chuoinho).toFixed(2));kt = 1;  break;
-            // Làm tròn 2 chữ số và bỏ số 0 (nếu có)
             default:
-                if (kt === 1) {
+                if (kt === 1 && !["+", "-", "*", "/"].includes(bt.innerText)) {
                     chuoinho = "";
                 }
-                // Lấy ký tự cuối
                 let lastChar = chuoinho.slice(-1);
-                // Nếu nút hiện tại là toán tử
-                if (["+", "-", "*", "/"].includes(bt.innerText)) {
-                    if (["+", "-", "*", "/"].includes(lastChar)) {
+                if (["+", "-", "*", "/","."].includes(bt.innerText)) {
+                    if (["+", "-", "*", "/","."].includes(lastChar)) {
                         chuoinho = chuoinho.slice(0, -1) + bt.innerText;
                     } else if (chuoinho === "") {
                         if (bt.innerText === "-") chuoinho += "-";
