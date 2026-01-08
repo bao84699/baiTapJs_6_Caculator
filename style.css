@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    background-image: url(158b67b7a1f50b69140df1dad3279bbe.jpg);
+    background-size: cover;
+    font-family: Inter;
+}
+
+
+.box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #FFFFFF2E;
+    background: #ADADAD1A;
+    width: 504px;
+    height: 720px;
+    border-radius: 30px;
+    padding: 25px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    gap: 38px;
+    position: relative;
+    left: 200px;
+    .display {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        border: 1px solid #FFFFFF;
+        width: 433px;
+        height: 127px;
+        top: 35px;
+        left: 33px;
+        border-radius: 20px;
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 60px;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow-x: auto;     
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+    .display::-webkit-scrollbar {
+        height: 4px;              /* độ dày scroll */
+    }
+    .display::-webkit-scrollbar-track {
+        background: transparent;  /* nền */
+    }
+    .display::-webkit-scrollbar-thumb {
+        background: rgba(255, 0, 0, 0.46);
+        border-radius: 10px;
+        cursor:pointer;
+    }
+    .action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 26px;
+        row-gap: 22px;
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #FFFFFF;
+            background: #ffffff65;
+            width: 87px;
+            height: 87px;
+            border-radius: 52px;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0px 0px 4.5px 0px #FFFFFF, 4px 4px 5.3px 0px #00000042 inset, -4px -4px 5.4px 0px #FFFFFF30 inset;
+        }
+        .a {
+            width: 201px;
+            height: 87px;
+        }
+        .button:active {
+            transform: scale(0.8);
+        }
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
+        background-image: url(158b67b7a1f50b69140df1dad3279bbe.jpg);
+        background-size: cover;
+        font-family: Inter;
+    }
+    .box {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #FFFFFF2E;
+        background: #ADADAD1A;
+        width: 400px;
+        height: 600px;
+        border-radius: 30px;
+        padding: 18px;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        position: relative;
+        left: 0;
+        .display {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            border: 1px solid #FFFFFF;
+            width: 94%;
+            height: 80px;
+            top: 35px;
+            left: 33px;
+            border-radius: 20px;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 36px;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow-x: auto;     
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+        .display::-webkit-scrollbar {
+            height: 4px;              /* độ dày scroll */
+        }
+        .display::-webkit-scrollbar-track {
+            background: transparent;  /* nền */
+        }
+        .display::-webkit-scrollbar-thumb {
+            background: rgba(255, 0, 0, 0.46);
+            border-radius: 10px;
+            cursor:pointer;
+        }
+        .action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 26px;
+            row-gap: 22px;
+            .button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #FFFFFF;
+                background: #ffffff65;
+                width: 60px;
+                height: 60px;
+                border-radius: 52px;
+                color: #FFFFFF;
+                font-weight: 700;
+                font-size: 24px;
+                cursor: pointer;
+                box-shadow: 0px 0px 4.5px 0px #FFFFFF, 4px 4px 5.3px 0px #00000042 inset, -4px -4px 5.4px 0px #FFFFFF30 inset;
+            }
+            .a {
+                width: 146px;
+                height: 60px;
+            }
+            .button:active {
+                transform: scale(0.8);
+            }
+        }
+    }
+}
