@@ -20,19 +20,25 @@ button.forEach((bt)=>{
                         chuoinho = "(-" + chuoinho + ")";
                     }
                 }
-                break;           case ",": chuoinho += "."; kt = 0; break;
+                break;           
+            case ",": chuoinho += "."; kt = 0; break;
             case "=": chuoinho = Number(eval(chuoinho).toFixed(2));kt = 1;  break;
             default:
-                if (kt === 1 && !["+", "-", "*", "/"].includes(bt.innerText)) {
-                    chuoinho = "";
+                if (kt === 1) {
+                    // Nếu bấm số thì mới xóa trắng, nếu bấm toán tử thì giữ lại
+                    if (!["+", "-", "*", "/", "%"].includes(bt.innerText)) {
+                        chuoinho = "";
+                    }
+                    kt = 0;
                 }
-                let lastChar = chuoinho.slice(-1);
-                if (["+", "-", "*", "/",".","%"].includes(bt.innerText)) {
-                    if (["+", "-", "*", "/",".","%"].includes(lastChar)) {
-                        chuoinho = chuoinho.slice(0, -1) + bt.innerText;
-                    } else if (chuoinho === "") {
-                        if (bt.innerText === "-") chuoinho += "-";
-                    } else {
+
+                let lastChar = chuoinho.toString().slice(-1);
+                if (["+", "-", "*", "/", ".", "%"].includes(bt.innerText)) {
+                    if (["+", "-", "*", "/", ".", "%"].includes(lastChar)) {
+                        chuoinho = chuoinho.toString().slice(0, -1) + bt.innerText;
+                    } else if (chuoinho === "" && giaTriNut === "-") {
+                        chuoinho += "-";
+                    } else if (chuoinho !== "") {
                         chuoinho += bt.innerText;
                     }
                 } else {
