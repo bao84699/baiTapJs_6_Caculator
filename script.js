@@ -29,7 +29,20 @@ button.forEach((bt)=>{
                 if (kt === 1) {
                     chuoinho = "";
                 }
-                chuoinho += bt.innerText;
+                // Lấy ký tự cuối
+                let lastChar = chuoinho.slice(-1);
+                // Nếu nút hiện tại là toán tử
+                if (["+", "-", "*", "/"].includes(bt.innerText)) {
+                    if (["+", "-", "*", "/"].includes(lastChar)) {
+                        chuoinho = chuoinho.slice(0, -1) + bt.innerText;
+                    } else if (chuoinho === "") {
+                        if (bt.innerText === "-") chuoinho += "-";
+                    } else {
+                        chuoinho += bt.innerText;
+                    }
+                } else {
+                    chuoinho += bt.innerText;
+                }
                 kt = 0;
         }
         display.textContent = chuoinho;
