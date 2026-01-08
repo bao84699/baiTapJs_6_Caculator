@@ -20,19 +20,15 @@ button.forEach((bt)=>{
                         chuoinho = "(-" + chuoinho + ")";
                     }
                 }
-                break;
-            case "%":
-                chuoinho += "%";
-                kt = 0;
-                break;            case ",": chuoinho += "."; kt = 0; break;
+                break;           case ",": chuoinho += "."; kt = 0; break;
             case "=": chuoinho = Number(eval(chuoinho).toFixed(2));kt = 1;  break;
             default:
                 if (kt === 1 && !["+", "-", "*", "/"].includes(bt.innerText)) {
                     chuoinho = "";
                 }
                 let lastChar = chuoinho.slice(-1);
-                if (["+", "-", "*", "/","."].includes(bt.innerText)) {
-                    if (["+", "-", "*", "/","."].includes(lastChar)) {
+                if (["+", "-", "*", "/",".","%"].includes(bt.innerText)) {
+                    if (["+", "-", "*", "/",".","%"].includes(lastChar)) {
                         chuoinho = chuoinho.slice(0, -1) + bt.innerText;
                     } else if (chuoinho === "") {
                         if (bt.innerText === "-") chuoinho += "-";
