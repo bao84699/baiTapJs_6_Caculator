@@ -10,7 +10,6 @@ button.forEach((bt)=>{
         switch(bt.innerText){
             case "AC": chuoinho = ""; kt = 0; break;
             case "DEL": chuoinho = chuoinho.slice(0,-1); break; 
-            // --> Cắt vị trí cuôi
             case "+/-":
                 if (chuoinho !== "") {
                     if (chuoinho.startsWith("(-") && chuoinho.endsWith(")")) {
@@ -22,8 +21,16 @@ button.forEach((bt)=>{
                 }
                 break;           
             case ",": chuoinho += "."; kt = 0; break;
-            case "=": chuoinho = Number(eval(chuoinho).toFixed(2));kt = 1;  break;
+            case "=": 
+                if (isNaN(eval(chuoinho)) || (!isFinite(eval(chuoinho)))){
+                    chuoinho = "Không chia cho 0";
+                    break;
+                }
+                chuoinho = Number(eval(chuoinho).toFixed(2));kt = 1;  break;
             default:
+                if (chuoinho === "Không chia cho 0" || chuoinho === "Biểu thức lỗi") {
+                    chuoinho = "";
+                }
                 if (kt === 1) {
                     // Nếu bấm số thì mới xóa trắng, nếu bấm toán tử thì giữ lại
                     if (!["+", "-", "*", "/", "%"].includes(bt.innerText)) {
@@ -31,12 +38,11 @@ button.forEach((bt)=>{
                     }
                     kt = 0;
                 }
-
                 let lastChar = chuoinho.toString().slice(-1);
                 if (["+", "-", "*", "/", ".", "%"].includes(bt.innerText)) {
                     if (["+", "-", "*", "/", ".", "%"].includes(lastChar)) {
                         chuoinho = chuoinho.toString().slice(0, -1) + bt.innerText;
-                    } else if (chuoinho === "" && giaTriNut === "-") {
+                    } else if (chuoinho === "" && bt.innerText === "-") {
                         chuoinho += "-";
                     } else if (chuoinho !== "") {
                         chuoinho += bt.innerText;
